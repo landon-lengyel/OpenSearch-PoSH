@@ -1,0 +1,18 @@
+{
+    "PowerShellLogging": {
+        "AllowedAttributesPath": "./OpenSearch-PoSHNamingStandard.json"
+    },
+    "NodeOptions": {
+        "AllowUnencryptedAuthentication": true,
+        "SkipCertificateCheck": true
+    },
+    "Nodes": [
+        "https://opensearch-test1.local:9200"
+    ],
+    "Authentication": {
+        "BasicAuth": {
+            "Username": "admin",
+            "Password": "MyNotSecretAdminPass123!"
+        }
+    }
+}

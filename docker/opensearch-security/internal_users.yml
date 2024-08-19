@@ -1,0 +1,24 @@
+---
+_meta:
+  type: "internalusers"
+  config_version: 2
+
+admin:
+  hash: "$2a$04$caZbKEsVRI6ALwvqtXA7XePAs5ATryo2aDRmvO/FE5eHlXCMELkiS"
+  reserved: true
+  hidden: false
+  backend_roles:
+  - "admin"
+  attributes: {}
+  description: "Built-in admin user"
+  opendistro_security_roles: []
+  static: false
+kibanaserver:
+  hash: "$2a$04$7uI60zk0Mon3Gb9tNI6KkuNgrqK4E6DFCC6imF09sZmW7zTRpa4ay"
+  reserved: true
+  hidden: false
+  backend_roles: []
+  attributes: {}
+  description: "OpenSearch Dashboards user"
+  opendistro_security_roles: []
+  static: false
