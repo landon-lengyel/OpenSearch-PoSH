@@ -53,7 +53,7 @@ function Disable-OSPerformanceAnalyzer {
     if ($Response.StatusCode -ne 200){
         throw $Response
     }
-    
+
     Write-Warning "You should now stop any Performance Analyzer RCA Agent on your nodes with:`nkill `$(ps aux | grep -i 'PerformanceAnalyzerApp' | grep -v grep | awk '{print `$2}')"
     pause
 
@@ -75,7 +75,7 @@ function Disable-OSPerformanceAnalyzer {
     }
 
     $RcaResponse = Invoke-OSCustomWebRequest @params
-    
+
     if ($RcaResponse.StatusCode -ne 200){
         throw $RcaResponse
     }

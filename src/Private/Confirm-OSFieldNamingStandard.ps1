@@ -10,9 +10,6 @@ function Confirm-OSFieldNamingStandard {
 
     .PARAMETER FieldNames
         This is a hashtable of field names and values that are desired to be sent to OpenSearch.
-
-    .PARAMETER CaseSensitive
-        Enable case sensitive verification.
     #>
     [CmdletBinding()]
     param(

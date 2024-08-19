@@ -35,7 +35,7 @@ function Add-OSIsmPolicy {
 
         [ValidateSet('JSON','YAML','CBOR','PSObject','Smile','PlainText')]
         [String]$Format='PSObject',
-    
+
         [System.Management.Automation.Credential()]
         [PSCredential]$Credential=[PSCredential]::Empty,
 
@@ -43,7 +43,7 @@ function Add-OSIsmPolicy {
 
         $OpenSearchURL
     )
-    
+
     # Build URL parameters - [Void] is necessary to prevent StringBuilder from outputting the object.
     $UrlParameter = [System.Text.StringBuilder]::new()
     if ('PlainText' -eq $Format){

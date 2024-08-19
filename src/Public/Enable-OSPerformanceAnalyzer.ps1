@@ -29,8 +29,8 @@ function Enable-OSPerformanceAnalyzer {
 
     .EXAMPLE
         Enable-OSPerformanceAnalyzer -RcaFramework
-        
-        Enable the Performance Analyzer plugin and Root Cause Analysis Framework        
+
+        Enable the Performance Analyzer plugin and Root Cause Analysis Framework
     #>
     [CmdletBinding()]
     param(
@@ -70,7 +70,7 @@ function Enable-OSPerformanceAnalyzer {
     $Response = Invoke-OSCustomWebRequest @params
 
     # Optionally enable RCA Framework
-    if ($Response.StatusCode -eq 200 -and 
+    if ($Response.StatusCode -eq 200 -and
     $RcaFramework -eq $True){
         # Delay seems to be necessary for some reason
         Start-Sleep -Seconds 5

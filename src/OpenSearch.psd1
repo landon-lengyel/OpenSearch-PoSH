@@ -71,16 +71,16 @@ PowerShellVersion = '7.0'
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 #'Confirm-OSDataType', 'Confirm-OSFieldNamingStandard', 'Convert-OSAdditionalParam'
 #'Find-OSBulkError', 'Get-OSConfigAuthentication', 'Get-OSConfigNode', 'Import-OSConfigFile',
-#'Invoke-OSCustomWebRequest', 'New-OSConfigFile', 
-    FunctionsToExport = @('Add-OSIsmPolicy', 'Add-OSLogPS', 'Confirm-OSIndexExist', 'Copy-OSIsmPolicy', 'Disable-OSIndexWrite', 
+#'Invoke-OSCustomWebRequest', 'New-OSConfigFile',
+    FunctionsToExport = @('Add-OSIsmPolicy', 'Add-OSLogPS', 'Confirm-OSIndexExist', 'Copy-OSIsmPolicy', 'Disable-OSIndexWrite',
         'Disable-OSPerformanceAnalyzer', 'Enable-OSIndexWrite', 'Enable-OSPerformanceanalyzer', 'Find-OS',
-        'Find-OSIndexPatternId', 'Find-OSLogPS', 'Find-OSVisualizationsById' , 'Get-OSAlias', 'Get-OSCatHeaders', 
-        'Get-OSClusterHealth', 'Get-OSClusterShardAllocation', 'Get-OSDataStream' , 'Get-OSIndex', 
-        'Get-OSIndexCount', 'Get-OSIndexSetting', 'Get-OSIngestPipeline', 'Get-OSIsm', 
-        'Get-OSIsmPolicyContent', 'Get-OSNode', 'Get-OSNodeProperties', 'Get-OSPerformanceAnalyzerStatus', 'Get-OSSegment', 'Get-OSShard', 'Get-OSShardRecovery', 
+        'Find-OSIndexPatternId', 'Find-OSLogPS', 'Find-OSVisualizationsById' , 'Get-OSAlias', 'Get-OSCatHeaders',
+        'Get-OSClusterHealth', 'Get-OSClusterShardAllocation', 'Get-OSDataStream' , 'Get-OSIndex',
+        'Get-OSIndexCount', 'Get-OSIndexSetting', 'Get-OSIngestPipeline', 'Get-OSIsm',
+        'Get-OSIsmPolicyContent', 'Get-OSNode', 'Get-OSNodeProperties', 'Get-OSPerformanceAnalyzerStatus', 'Get-OSSegment', 'Get-OSShard', 'Get-OSShardRecovery',
         'Get-OSStorageAllocation', 'Get-OSTask', 'Import-OSAllBulkDocument', 'Import-OSDocument',
         'Import-OSUniqueBulkDocument', 'Initialize-OSDataStream', 'Initialize-OSIndexBeta', 'Initialize-OSPSLog',
-        'Invoke-OSIsmRetry', 'Invoke-OSReIndex', 'New-OSConfigFile', 'New-OSIngestPipeline', 'Remove-OSDataStream', 'Remove-OSIndex', 
+        'Invoke-OSIsmRetry', 'Invoke-OSReIndex', 'New-OSConfigFile', 'New-OSIngestPipeline', 'Remove-OSDataStream', 'Remove-OSIndex',
         'Remove-OSIngestPipeline', 'Remove-OSIsmPolicy', 'Start-OSClusterShardReroute', 'Stop-OSTask',
         'Update-OSDashboardsObject', 'Update-OSIsmPolicy'
     )
@@ -145,4 +145,3 @@ PrivateData = @{
 # DefaultCommandPrefix = ''
 
 }
-

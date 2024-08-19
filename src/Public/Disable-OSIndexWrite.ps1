@@ -11,7 +11,7 @@ function Disable-OSIndexWrite {
 
     .PARAMETER AllowDelete
         Enable allowing delete operations, while blocking all other write operations.
-        
+
     .PARAMETER Credential
         PSCredential for basic authentication to OpenSearch.
 
