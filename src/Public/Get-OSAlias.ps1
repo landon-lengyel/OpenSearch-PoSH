@@ -6,8 +6,8 @@ function Get-OSAlias {
     .DESCRIPTION
         Aliases allow users to address an index by a different name. Use this function to see what aliases you have configured.
 
-    .PARAMETER AliasNames
-        Array of alias names to limit results.
+    .PARAMETER Alias
+        Alias name(s) to limit results.
 
     .PARAMETER ExpandWildcards
         Expands wildcard expressions to different indexes. Combine multiple values with commas. Available values are all (match all indexes), open (match open indexes), closed (match closed indexes), hidden (match hidden indexes), and none (do not accept wildcard expressions). Default is open.
@@ -36,7 +36,7 @@ function Get-OSAlias {
     [CmdletBinding()]
     param(
         [SupportsWildcards()]
-        [Array]$AliasNames,
+        [Array]$Alias,
 
         [ValidateSet('all','open','closed','hidden','none')]
         [String]$ExpandWildcards='open',
@@ -75,6 +75,9 @@ function Get-OSAlias {
     if ($Headers.Count -ge 1){
         [Void]$Urlparameter.Append("&h=$([String]$Headers)")
     }
+    if ('' -ne $ExpandWildcards){
+        [Void]$UrlParameter.Append("expand_wildcards=$ExpandWildcards")
+    }
     if ('PlainText' -eq $Format){
         # Do nothing
     }
@@ -93,8 +96,8 @@ function Get-OSAlias {
     }
 
     # Build request
-    if ($AliasNames.Count -ge 1){
-        $Request = '/_cat/aliases/' + [String]$AliasNames + $UrlParameterString
+    if ($AliasName.Count -ge 1){
+        $Request = '/_cat/aliases/' + [String]$AliasName + $UrlParameterString
     }
     else {
         $Request = '/_cat/aliases' + $UrlParameterString
