@@ -16,7 +16,7 @@ function Get-OSStorageAllocation {
         Array of column headers to display.
 
     .PARAMETER ListHeaders
-        List all possible header options and exit. Utilizes the Get-OSCatHeaders function.
+        List all possible header options and exit. Utilizes the Get-OSCatHeader function.
 
     .PARAMETER Format
         Return results in specified format.
@@ -52,7 +52,7 @@ function Get-OSStorageAllocation {
     )
 
     if ($ListHeaders -eq $True){
-        $Headers = Get-OSCatHeaders -CatApi 'allocation'
+        $Headers = Get-OSCatHeader -CatApi 'allocation'
         return $Headers
     }
 

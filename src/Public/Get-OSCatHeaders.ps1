@@ -1,4 +1,4 @@
-function Get-OSCatHeaders {
+function Get-OSCatHeader {
     <#
     .SYNOPSIS
         Find all possible headers for a given _cat API.
@@ -107,5 +107,5 @@ function Get-OSCatHeaders {
     }
 }
 
-Export-ModuleMember -Function Get-OSCatHeaders
+Export-ModuleMember -Function Get-OSCatHeader
 

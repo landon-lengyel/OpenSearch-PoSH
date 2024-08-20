@@ -17,7 +17,7 @@ function Get-OSShard {
         Array of column headers to display.
 
     .PARAMETER ListHeaders
-        List all possible header options and exit. Utilizes the Get-OSCatHeaders function.
+        List all possible header options and exit. Utilizes the Get-OSCatHeader function.
 
     .PARAMETER UnassignedHeaders
         Returns the following headers (overrides Headers parameter): index,node,shard,prirep,state,unassigned.reason
@@ -58,7 +58,7 @@ function Get-OSShard {
     )
 
     if ($ListHeaders -eq $True){
-        $Headers = Get-OSCatHeaders -CatApi 'shards'
+        $Headers = Get-OSCatHeader -CatApi 'shards'
         return $Headers
     }
 

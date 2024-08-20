@@ -19,7 +19,7 @@ function Get-OSShardRecovery {
         Array of column headers to display.
 
     .PARAMETER ListHeaders
-        List all possible header options and exit. Utilizes the Get-OSCatHeaders function.
+        List all possible header options and exit. Utilizes the Get-OSCatHeader function.
 
     .PARAMETER Format
         Return results in specified format.
@@ -57,7 +57,7 @@ function Get-OSShardRecovery {
     )
 
     if ($ListHeaders -eq $True){
-        $Headers = Get-OSCatHeaders -CatApi 'recovery'
+        $Headers = Get-OSCatHeader -CatApi 'recovery'
         return $Headers
     }
 

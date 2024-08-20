@@ -22,7 +22,7 @@ function Get-OSIndex {
         Array of column headers to display.
 
     .PARAMETER ListHeaders
-        List all possible header options and exit. Utilizes the Get-OSCatHeaders function.
+        List all possible header options and exit. Utilizes the  function.
 
     .PARAMETER Format
         Return results in specified format.
@@ -69,7 +69,7 @@ function Get-OSIndex {
     }
 
     if ($ListHeaders -eq $True){
-        $Headers = Get-OSCatHeaders -CatApi 'indices'
+        $Headers = Get-OSCatHeader -CatApi 'indices'
         return $Headers
     }
 

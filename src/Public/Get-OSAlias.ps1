@@ -19,7 +19,7 @@ function Get-OSAlias {
         Array of column headers to display.
 
     .PARAMETER ListHeaders
-        List all possible header options and exit. Utilizes the Get-OSCatHeaders function.
+        List all possible header options and exit. Utilizes the Get-OSCatHeader function.
 
     .PARAMETER Format
         Return results in specified format.
@@ -59,7 +59,7 @@ function Get-OSAlias {
     )
 
     if ($ListHeaders -eq $True){
-        $Headers = Get-OSCatHeaders -CatApi 'aliases'
+        $Headers = Get-OSCatHeader -CatApi 'aliases'
         return $Headers
     }
 

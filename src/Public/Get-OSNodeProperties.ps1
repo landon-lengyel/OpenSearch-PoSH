@@ -1,4 +1,4 @@
-function Get-OSNodeProperties {
+function Get-OSNodeProperty {
     <#
     .SYNOPSIS
         Returns all node properties.
@@ -148,5 +148,4 @@ function Get-OSNodeProperties {
     }
 }
 
-Export-ModuleMember -Function Get-OSNodeProperties
-
+Export-ModuleMember -Function Get-OSNodeProperty
