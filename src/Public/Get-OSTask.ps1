@@ -1,4 +1,4 @@
-function Get-OSTask {
+﻿function Get-OSTask {
     <#
     .SYNOPSIS
         Get a running task, or list of running tasks. Returns task object or $null if not found (possibly due to completion).

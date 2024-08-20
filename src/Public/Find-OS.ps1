@@ -1,4 +1,4 @@
-function Find-OS {
+﻿function Find-OS {
     <#
     .SYNOPSIS
         (BETA) Advanced search function.

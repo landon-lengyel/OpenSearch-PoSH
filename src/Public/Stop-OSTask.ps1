@@ -1,4 +1,4 @@
-function Stop-OSTask {
+﻿function Stop-OSTask {
     <#
     .SYNOPSIS
         Get a running task, or list of running tasks
