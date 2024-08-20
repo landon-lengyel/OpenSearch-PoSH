@@ -3,10 +3,6 @@ function Remove-OSDataStream {
     .SYNOPSIS
         Deletes an existing data stream.
 
-    .OUTPUTS
-        Returns $null if Data Stream was successfully deleted.
-        Returns $false if the Data Stream wasn't found.
-
     .PARAMETER DataStream
         Name of the data stream to delete.
 
@@ -24,8 +20,6 @@ function Remove-OSDataStream {
 
     .PARAMETER OpenSearchURL
         URL(s) to OpenSearch instance. Do not include any path or api endpoint.
-
-
     #>
     [CmdletBinding()]
     param(

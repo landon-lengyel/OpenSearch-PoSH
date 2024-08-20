@@ -7,10 +7,6 @@ function Remove-OSIndex {
         Delete's a specified index. Use NoConfirm parameter to bypass confirmation.
         Will redirect to Get-OSDataStream if Index is actually a data stream.
 
-    .OUTPUTS
-        Returns $null if index was successfully deleted.
-        Returns $false if the index wasn't found.
-
     .PARAMETER Index
         Index you would like deleted.
 

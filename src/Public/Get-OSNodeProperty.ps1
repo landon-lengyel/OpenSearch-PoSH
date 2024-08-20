@@ -56,7 +56,7 @@ function Get-OSNodeProperty {
         [SupportsWildcards()]
         [string]$NodeHostName,
 
-        [Parameter(ParameterSetName = 'NodeIp',Mandatory,ValueFromPipeline)]
+        [Parameter(ParameterSetName = 'NodeIp',Mandatory)]
         [SupportsWildcards()]
         [string]$NodeIp,
 
