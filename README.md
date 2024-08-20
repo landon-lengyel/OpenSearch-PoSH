@@ -2,10 +2,12 @@
 This module attempts to make OpenSearch management easier for syadmins, by exposing the API in a more PowerShell friendly way. It can be used to assist with scripting, or as a CLI for assisting with OpenSearch management tasks.
 
 # Config File
+The config file isn't required, and you can specify your nodes URL and credentials each time it runs. The config file allows you to bypass that and really helps makes the module useful as a CLI.
+
 An empty config file can be generated with `New-OSConfigFile` and will be placed in the current directory.
 You should configure the `Nodes` section with a list of your node(s), and one of the authentication methods.
 
-The config file will be loaded from the following paths in order:
+The config file will be loaded from the following **paths in order**:
 1. `.\PoSHOpenSearchConfig.json`
 2. `$env:USERPROFILE\Documents\PoSHOpenSearchConfig.json`
 3. `C:\ProgramData\PoSHOpenSearchConfig.json`
