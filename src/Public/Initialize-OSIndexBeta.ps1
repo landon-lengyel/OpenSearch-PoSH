@@ -4,7 +4,7 @@ function Initialize-OSIndexBeta {
         (BETA) Attempts to create index with data types
 
     .DESCRIPTION
-        (BETA) This function is in beta and is subject to change. 
+        (BETA) This function is in beta and is subject to change.
         Currently ScaledFloat, Alias, TokenCount, and KnnVector are not working with this function. Those require more options which will require reworking this function.
 
         Getting index metadata requires additional permissions. To avoid that, it simply attempts to create index with the specified data types.
@@ -22,7 +22,7 @@ function Initialize-OSIndexBeta {
 
     .PARAMETER Force
         Skips the module's data type verification and attempts to run it with arbitrary values.
-        
+
     .PARAMETER Credential
         PSCredential for basic authentication to OpenSearch.
 

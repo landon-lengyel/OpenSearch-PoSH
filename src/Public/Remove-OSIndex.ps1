@@ -53,7 +53,7 @@ function Remove-OSIndex {
         else {
             $Output = Remove-OSDataStream -DataStream $Index -Credential $Credential -Certificate $Certificate -OpenSearchURL $OpenSearchURL
         }
-        
+
         return $Output
     }
 
