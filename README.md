@@ -1,4 +1,7 @@
 # OpenSearch-PoSH
+[![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/OpenSearch-PoSH?label=PowerShell%20Gallery)](https://www.powershellgallery.com/packages/OpenSearch-PoSH)
+[![Minimum Supported PowerShell Version](https://img.shields.io/badge/PowerShell-7.0-blue.svg)](https://github.com/landon-lengyel/OpenSearch-PoSH)
+
 This module attempts to make OpenSearch management easier for syadmins, by exposing the API in a more PowerShell friendly way. It can be used to assist with scripting, or as a CLI for assisting with OpenSearch management tasks.
 
 # Config File
