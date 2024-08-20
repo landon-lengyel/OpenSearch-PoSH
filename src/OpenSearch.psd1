@@ -80,7 +80,7 @@ PowerShellVersion = '7.0'
         'Get-OSIsmPolicyContent', 'Get-OSNode', 'Get-OSNodeProperties', 'Get-OSPerformanceAnalyzerStatus', 'Get-OSSegment', 'Get-OSShard', 'Get-OSShardRecovery',
         'Get-OSStorageAllocation', 'Get-OSTask', 'Import-OSAllBulkDocument', 'Import-OSDocument',
         'Import-OSUniqueBulkDocument', 'Initialize-OSDataStream', 'Initialize-OSIndexBeta', 'Initialize-OSPSLog',
-        'Invoke-OSIsmRetry', 'Invoke-OSReIndex', 'New-OSConfigFile', 'New-OSIngestPipeline', 'Remove-OSDataStream', 'Remove-OSIndex',
+        'Invoke-OSIsmRetry', 'Invoke-OSReIndex', 'New-OSAlias', 'New-OSConfigFile', 'New-OSIngestPipeline', 'Remove-OSDataStream', 'Remove-OSIndex',
         'Remove-OSIngestPipeline', 'Remove-OSIsmPolicy', 'Start-OSClusterShardReroute', 'Stop-OSTask',
         'Update-OSDashboardsObject', 'Update-OSIsmPolicy'
     )
