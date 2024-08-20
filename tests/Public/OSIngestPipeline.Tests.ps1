@@ -1,7 +1,7 @@
 BeforeAll {
     $IndexName = 'OSIngestPipeline-TestIndex'
 
-    Import-Module "./src/OpenSearch.psd1" -Force
+    Import-Module "./OpenSearch-PoSH/OpenSearch-PoSH.psd1" -Force
 }
 
 Describe 'OSIngestPipeline related functions' {

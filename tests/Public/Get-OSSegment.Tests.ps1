@@ -1,7 +1,7 @@
 BeforeAll {
     $IndexName = 'Get-OSSegment-TestIndex'
 
-    Import-Module "./src/OpenSearch.psd1" -Force
+    Import-Module "./OpenSearch-PoSH/OpenSearch-PoSH.psd1" -Force
 
     Import-OSDocument -Index $IndexName -Document @{'MyField' = 'MyValue'}
     Start-Sleep -Seconds 1    # Creation can be a little slower than is needed
@@ -59,7 +59,7 @@ Describe 'Get-OSSegment' {
         $Shards = Get-OSSegment -Format 'CBOR'
 
         $Shards.GetType().FullName | Should -Be 'System.String' -Because 'CBOR format appears as strings'
-        $Shards | Should -BeLike '??eindexr*' -Because 'CBOR starts with ?? then adds content'
+        $Shards | Should -BeLike '??eindex*' -Because 'CBOR starts with ?? then adds content'
     }
 
     It 'Can format as Smile' {

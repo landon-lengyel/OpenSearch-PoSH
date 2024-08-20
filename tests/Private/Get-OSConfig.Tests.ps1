@@ -1,6 +1,6 @@
 BeforeAll {
-    Import-Module "./src/OpenSearch.psd1" -Force
-    . "./src/Private/Get-OSConfig.ps1"
+    Import-Module "./OpenSearch-PoSH/OpenSearch-PoSH.psd1" -Force
+    . "./OpenSearch-PoSH/Private/Get-OSConfig.ps1"
 }
 
 Describe 'Get-OSConfig' {

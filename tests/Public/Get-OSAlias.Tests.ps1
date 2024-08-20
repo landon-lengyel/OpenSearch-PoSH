@@ -1,5 +1,5 @@
 BeforeAll {
-    Import-Module "./src/OpenSearch.psd1" -Force
+    Import-Module "./OpenSearch-PoSH/OpenSearch-PoSH.psd1" -Force
 
     # Create a few test indices
     $Index1 = 'New-OSAlias-Test1'

@@ -9,10 +9,10 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-RootModule = 'OpenSearch.psm1'
+RootModule = 'OpenSearch-PoSH.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.2.0'
+ModuleVersion = '0.3.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -108,16 +108,16 @@ AliasesToExport = @()
 PrivateData = @{
 
     PSData = @{
-        Title = 'OpenSearch'
+        Title = 'OpenSearch-PoSH'
 
         # Tags applied to this module. These help with module discovery in online galleries.
         Tags = @('Windows','Linux','macOS','OpenSearch','Logging','Monitoring')
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/landon-lengyel/OpenSearch-PoSH/tree/main?tab=GPL-3.0-1-ov-file'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/landon-lengyel/OpenSearch-PoSH'
 
         # A URL to an icon representing this module.
         # IconUri = ''

@@ -1,7 +1,7 @@
 BeforeAll {
     $IndexName = 'Confirm-OSIndexExists-TestIndex'
 
-    Import-Module "./src/OpenSearch.psd1" -Force
+    Import-Module "./OpenSearch-PoSH/OpenSearch-PoSH.psd1" -Force
 
     Import-OSDocument -Index $IndexName -Document @{'MyField' = 'MyValue'}
 }

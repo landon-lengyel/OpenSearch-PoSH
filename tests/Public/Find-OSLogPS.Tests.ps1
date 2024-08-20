@@ -1,7 +1,7 @@
 BeforeAll {
     $IndexName = 'log_ps_find-oslogps-testindex'
 
-    Import-Module "./src/OpenSearch.psd1" -Force
+    Import-Module "./OpenSearch-PoSH/OpenSearch-PoSH.psd1" -Force
 
     Add-OSLogPS -Index $IndexName -DisableLocalLog -Message 'test log 1' -LogLevel 'Information'
     Add-OSLogPS -Index $IndexName -DisableLocalLog -Message 'test log 2' -LogLevel 'Information'
