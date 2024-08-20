@@ -27,9 +27,6 @@ function Get-OSNodeProperty {
     .PARAMETER NodeAttribute
         Filter to node(s) with specific attribute/value pair(s). Both attribute and value support wildcards.
 
-    .PARAMETER CustomNodeFilter
-        Advanced: Custom node filter to pass through pased on: https://opensearch.org/docs/latest/api-reference/nodes-apis/index/#node-filters
-
     .PARAMETER Credential
         PSCredential for basic authentication to OpenSearch.
 
@@ -70,10 +67,6 @@ function Get-OSNodeProperty {
         [SupportsWildcards()]
         [hashtable]$NodeAttribute,
 
-        [Parameter(ParameterSetName = 'CustomNodeFilter',Mandatory)]
-        [SupportsWildcards()]
-        [string]$CustomNodeFilter,
-
         [System.Management.Automation.Credential()]
         [PSCredential]$Credential=[PSCredential]::Empty,
 
@@ -86,7 +79,7 @@ function Get-OSNodeProperty {
     $RequestBuilder = [System.Text.StringBuilder]::new()
     [Void]$RequestBuilder.Append('/_nodes/')
 
-    if ($PSCmdlet.ParameterSetName -eq 'AllNode'){
+    if ($AllNode -eq $true){
         # No parameter set means _all (default)
         [Void]$RequestBuilder.Append('_all')
     }

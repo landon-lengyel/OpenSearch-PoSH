@@ -113,6 +113,10 @@ function New-OSAlias {
         $Body.filter = $Filter
     }
 
+    if ($true -eq $IsHidden){
+        $Body.is_hidden = $true
+    }
+
     $Body = $Body | ConvertTo-Json -Depth 100
 
     # Build request
