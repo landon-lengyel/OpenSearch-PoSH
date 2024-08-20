@@ -65,7 +65,6 @@ function Remove-OSDataStream {
     }
 
     $Response = Invoke-OSCustomWebRequest -OpenSearchUrls $OpenSearchURL -Request $Request -Method "DELETE" -Credential $Credential -Certificate $Certificate
-    $ResponseContent = $Response.Content | ConvertFrom-Json -Depth 100
 
     # Return $null if successfully deleted
     if ($Response.StatusCode -eq 200){
