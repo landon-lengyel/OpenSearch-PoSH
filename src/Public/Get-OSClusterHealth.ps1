@@ -68,7 +68,7 @@ function Get-OSClusterHealth {
 
     .EXAMPLE
         Get-OSClusterHealth -Indices @('MyFirstIndex','MySecondIndex')
-    
+
     .EXAMPLE
         Get-OSClusterHealth -Indices 'MyIndex'
     #>

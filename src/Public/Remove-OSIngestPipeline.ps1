@@ -18,8 +18,8 @@ function Remove-OSIngestPipeline {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
-        [string]$PipelineName,        
-        
+        [string]$PipelineName,
+
         [System.Management.Automation.Credential()]
         [PSCredential]$Credential=[PSCredential]::Empty,
 

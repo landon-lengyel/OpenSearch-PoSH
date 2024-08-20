@@ -4,7 +4,7 @@ BeforeAll {
     Import-Module "./src/OpenSearch.psd1" -Force
 
     Import-OSDocument -Index $IndexName -Document @{'MyField' = 'MyValue'}
-    Start-Sleep -Seconds 1    # Creation can be a little slower than is needed    
+    Start-Sleep -Seconds 1    # Creation can be a little slower than is needed
 }
 
 Describe 'Get-OSSegment' {
@@ -41,14 +41,14 @@ Describe 'Get-OSSegment' {
     #region Format
     It 'Can format as JSON' {
         $Shards = Get-OSSegment -Format 'JSON'
-        
+
         $Shards.GetType().FullName | Should -Be 'System.String' -Because 'JSON format appears as strings'
         $Shards | ConvertFrom-Json | Should -ExpectedType 'System.Management.Automation.PSCustomObject' -Because 'JSON should be valid'
     }
 
     It 'Can format as YAML' {
         $Shards = Get-OSSegment -Format 'YAML'
-        
+
         $Shards.GetType().FullName | Should -Be 'System.String' -Because 'YAML format appears as strings'
 
         $Shards | Should -BeLike '---*' -Because 'First YAML line is three dashes'
@@ -57,21 +57,21 @@ Describe 'Get-OSSegment' {
 
     It 'Can format as CBOR' {
         $Shards = Get-OSSegment -Format 'CBOR'
-        
+
         $Shards.GetType().FullName | Should -Be 'System.String' -Because 'CBOR format appears as strings'
         $Shards | Should -BeLike '??eindexr*' -Because 'CBOR starts with ?? then adds content'
     }
 
     It 'Can format as Smile' {
         $Shards = Get-OSSegment -Format 'Smile'
-        
+
         $Shards.GetType().FullName | Should -Be 'System.String' -Because 'Smile format appears as strings'
         $Shards | Should -BeLike ":)`n.???indexQ*" -Because 'Smile starts with :) on one line then content on next line'
     }
 
     It 'Can format as PlainText' {
         $Shards = Get-OSSegment -Format 'PlainText'
-        
+
         $Shards.GetType().FullName | Should -Be 'System.String' -Because 'PlainText format appears as strings'
         $Shards | Should -Match "index\s+shard\s+prirep" -Because 'PlainText starts with headers'
     }

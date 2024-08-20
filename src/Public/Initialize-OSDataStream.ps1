@@ -10,7 +10,7 @@ function Initialize-OSDataStream {
 
     .PARAMETER Index
         Index you would like the data to be added to.
-        
+
     .PARAMETER Credential
         PSCredential for basic authentication to OpenSearch.
 

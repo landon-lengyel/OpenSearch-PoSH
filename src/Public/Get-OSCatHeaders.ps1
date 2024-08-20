@@ -42,7 +42,7 @@ function Get-OSCatHeaders {
 
         $OpenSearchURL
     )
-    
+
     $Request = '_cat/' + $CatApi + '?help'
 
     $Params = @{

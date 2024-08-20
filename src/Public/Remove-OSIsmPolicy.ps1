@@ -83,7 +83,7 @@ function Remove-OSIsmPolicy {
         if ($ResponseContent.failures -eq $True){
             throw $ResponseContent
         }
-        
+
         if ('PSObject' -eq $Format){
             # Already using $ResponseContent
         }

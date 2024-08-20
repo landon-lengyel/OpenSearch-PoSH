@@ -14,9 +14,9 @@ function Confirm-OSFieldNamingStandard {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory=$True)]
-        [Hashtable]$FieldNames,
+        [Hashtable]$FieldNames
 
-        [Switch]$CaseSensitive
+        #[Switch]$CaseSensitive
     )
 
     $ConfigData = Get-OSConfig

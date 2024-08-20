@@ -18,7 +18,7 @@ function Import-OSUniqueBulkDocument {
 
     .PARAMETER OpType
         Operation to perform on the API. This will default to index, and usually that is fine. Data streams need 'create'
-        
+
     .PARAMETER Credential
         PSCredential for basic authentication to OpenSearch.
 

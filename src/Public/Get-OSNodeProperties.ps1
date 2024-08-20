@@ -11,7 +11,7 @@ function Get-OSNodeProperties {
 
     .PARAMETER AllNode
         Return all nodes.
-    
+
     .PARAMETER NodeName
         Return only the specified node's properties by name. Case senstitive, wildcards supported.
 
@@ -117,7 +117,7 @@ function Get-OSNodeProperties {
 
             [Void]$RequestBuilder.Append(',')
         }
-        
+
         # Remove final comma
         $FinalComma = $RequestBuilder.Length - 1
         [Void]$RequestBuilder.Remove($FinalComma, 1)

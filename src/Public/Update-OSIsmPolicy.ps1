@@ -19,7 +19,7 @@ function Update-OSIsmPolicy {
 
     .PARAMETER NewState
         After the change, transition to this ISM state.
-    
+
     .PARAMETER Format
         Return results in specified format.
 
@@ -129,7 +129,7 @@ function Update-OSIsmPolicy {
 
     # Handle response
     if ($Response.StatusCode -eq 200){
-        
+
         $ResponseContent = $Response.Content | ConvertFrom-JSon -Depth 100
         # Errors can occur and still return status code 200 with this endpoint
         if ($ResponseContent.failures -eq $True){

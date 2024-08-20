@@ -23,7 +23,7 @@ Describe 'Get-OSConfig' {
     It 'Specifying Authentication and PowershellLogging should limit output' {
         $ExpectedResult = '{"Authentication":{"BasicAuth":{"Username":"admin","Password":"MyNotSecretAdminPass123!"}},"PowerShellLogging":{"AllowedAttributesPath":"./OpenSearch-PoSHNamingStandard.json"}}'
 
-        
+
         $Config = Get-OSConfig -ReturnOptions @('Authentication','PowerShellLogging')
         $Config | ConvertTo-Json -Depth 100 -Compress | Should -Be $ExpectedResult -Because 'You should be able to limit output to Authentication and PowershellLogging, and this is the validated config output.'
     }

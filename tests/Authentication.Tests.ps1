@@ -11,7 +11,7 @@ Describe 'Authentication' {
         # Pester created temp drive
         Set-Location "TestDrive:\"
     }
-    
+
     #region BasicAuth
     It 'Can authenticate with Username/Password directly without specifying URL' {
         # Config to use NodeOptions, and Nodes
@@ -31,7 +31,7 @@ Describe 'Authentication' {
         $Credential = New-Object PSCredential $Username, $Password
 
         $Health = Get-OSClusterHealth -Credential $Credential
-        
+
         $Health.GetType().FullName | Should -Be 'System.Management.Automation.PSCustomObject' -Because 'Script can use config file to specify node URLs and manually specify basic authentication'
 
         $Health.status | Should -BeIn @('green','yellow','red') -Because 'Success returns status'
@@ -57,7 +57,7 @@ Describe 'Authentication' {
         $Config | Out-File -Path './PoSHOpenSearchConfig.json'
 
         $Health = Get-OSClusterHealth
-        
+
         $Health.GetType().FullName | Should -Be 'System.Management.Automation.PSCustomObject' -Because 'Use config file to specify nodes and username/password'
 
         $Health.status | Should -BeIn @('green','yellow','red') -Because 'Success returns status'
@@ -108,7 +108,7 @@ Describe 'Authentication' {
         Copy-Item -Path $PfxPath -Destination "." | Should -BeNullOrEmpty -Because 'Certificate path should be correct'
 
         $Health = Get-OSClusterHealth
-        
+
         $Health.GetType().FullName | Should -Be 'System.Management.Automation.PSCustomObject' -Because 'Used the PFX file to authenticate specified in config'
 
         $Health.status | Should -BeIn @('green','yellow','red') -Because 'Success returns status'
@@ -138,7 +138,7 @@ Describe 'Authentication' {
         Import-PfxCertificate -FilePath './test-admin.pfx' -CertStoreLocation 'Cert:\CurrentUser\My\' | Should -ExpectedType 'System.Security.Cryptography.X509Certificates.X509Certificate2' -Because 'Pfx name should be correct and importable'
 
         $Health = Get-OSClusterHealth
-        
+
         $Health.GetType().FullName | Should -Be 'System.Management.Automation.PSCustomObject' -Because 'Found certificate in Windows cert store using the thumbprint'
 
         $Health.status | Should -BeIn @('green','yellow','red') -Because 'Success returns status'
@@ -155,7 +155,7 @@ Describe 'Authentication' {
     # Will need a test Windows domain, CA, and this computer to be joined to the domain.
 
     #endregion
-    
+
     AfterEach {
         Remove-Item 'TestDrive:\PoSHOpenSearchConfig.json' -ErrorAction SilentlyContinue
         Set-Location $OriginalLocation

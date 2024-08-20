@@ -32,14 +32,14 @@ Describe 'Get-OSIndex' {
     #region Format
     It 'Can format as JSON' {
         $Indices = Get-OSIndex -Format 'JSON'
-        
+
         $Indices.GetType().FullName | Should -Be 'System.String' -Because 'JSON format appears as strings'
         $Indices | ConvertFrom-Json | Should -ExpectedType 'System.Management.Automation.PSCustomObject' -Because 'JSON should be valid'
     }
 
     It 'Can format as YAML' {
         $Indices = Get-OSIndex -Format 'YAML'
-        
+
         $Indices.GetType().FullName | Should -Be 'System.String' -Because 'YAML format appears as strings'
 
         $Indices | Should -BeLike '---*' -Because 'First YAML line is three dashes'
@@ -48,21 +48,21 @@ Describe 'Get-OSIndex' {
 
     It 'Can format as CBOR' {
         $Indices = Get-OSIndex -Format 'CBOR'
-        
+
         $Indices.GetType().FullName | Should -Be 'System.String' -Because 'CBOR format appears as strings'
         $Indices | Should -BeLike '??fhealthf*' -Because 'CBOR starts with ?? then adds content'
     }
 
     It 'Can format as Smile' {
         $Indices = Get-OSIndex -Format 'Smile'
-        
+
         $Indices.GetType().FullName | Should -Be 'System.String' -Because 'Smile format appears as strings'
         $Indices | Should -BeLike ":)`n.???health*" -Because 'Smile starts with :) on one line then content on next line'
     }
 
     It 'Can format as PlainText' {
         $Indices = Get-OSIndex -Format 'PlainText'
-        
+
         $Indices.GetType().FullName | Should -Be 'System.String' -Because 'PlainText format appears as strings'
         $Indices | Should -Match "health\s+status\s+index" -Because 'PlainText starts with headers'
     }

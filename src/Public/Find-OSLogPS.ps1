@@ -30,7 +30,7 @@ function Find-OSLogPS {
 
     .PARAMETER Message
         Searches for contents in a log message.
-        
+
     .PARAMETER Credential
         PSCredential for basic authentication to OpenSearch.
 
@@ -82,7 +82,7 @@ function Find-OSLogPS {
 
         [Parameter(ValueFromRemainingArguments=$true)]
         $AdditionalParams,
-        
+
         [System.Management.Automation.Credential()]
         [PSCredential]$Credential=[PSCredential]::Empty,
 

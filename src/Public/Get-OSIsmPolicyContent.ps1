@@ -90,7 +90,7 @@ function Get-OSIsmPolicyContent {
         else {     # All other types store it in RawContent
             # Use singeline regex to remove header information
             $ResponseContent = $Response.RawContent -replace '(?s)^(.|\n)*Content-Length: \d*....', ''
-        }        
+        }
 
         return $ResponseContent
     }

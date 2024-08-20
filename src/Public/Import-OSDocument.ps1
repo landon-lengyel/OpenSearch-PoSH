@@ -14,7 +14,7 @@ function Import-OSDocument {
 
     .PARAMETER DocumentId
         Optionally include an _id to index the document at. Do not specify to have OpenSearch generate one.
-    
+
     .PARAMETER Credential
         PSCredential for basic authentication to OpenSearch.
 

@@ -94,7 +94,7 @@ function Copy-OSIsmPolicy {
         if ($NewAdvancedIndexPatterns[0].index_patterns[0].GetType().FullName -ne 'System.String'){
             throw 'NewAdvancedIndexPatterns objects must contain a property named index_patterns that is itself an array of strings. Use NewIndexPatterns for a more straightforward experience.'
         }
-        if ($NewAdvancedIndexPatterns[0].priority.GetType().FullName -ne 'System.Int64' -and 
+        if ($NewAdvancedIndexPatterns[0].priority.GetType().FullName -ne 'System.Int64' -and
         $NewAdvancedIndexPatterns[0].priority.GetType().FullName -ne 'System.Int32'){
             throw 'NewAdvancedIndexPatterns objects must contain a property named priority which is an Int. Use NewIndexPatterns for a more straightforward experience.'
         }

@@ -159,7 +159,7 @@ function Find-OS {
 
     .PARAMETER Version
         Include the document version in the response.
-        
+
     .PARAMETER Credential
         PSCredential for basic authentication to OpenSearch.
 

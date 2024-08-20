@@ -47,7 +47,7 @@ function Get-OSIndexCount {
 
     .PARAMETER TerminateAfter
         Maximum number of documents to count before terminating the request.
-        
+
     .PARAMETER Credential
         PSCredential for basic authentication to OpenSearch.
 
