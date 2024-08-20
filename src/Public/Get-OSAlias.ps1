@@ -63,6 +63,13 @@ function Get-OSAlias {
         return $Headers
     }
 
+    # Alias names must be lowercase
+    if ($null -ne $Alias){
+        for ($AliasCount=0; $AliasCount -lt $Alias.Count; $AliasCount++){
+            $Alias[$AliasCount] = $Alias[$AliasCount].ToLower()
+        }
+    }
+
     # Use output field seperator for casting arrays to strings with comma seperation
     $OldOfs = $ofs
     $ofs = ','
@@ -75,8 +82,8 @@ function Get-OSAlias {
     if ($Headers.Count -ge 1){
         [Void]$Urlparameter.Append("&h=$([String]$Headers)")
     }
-    if ('' -ne $ExpandWildcards){
-        [Void]$UrlParameter.Append("expand_wildcards=$ExpandWildcards")
+    if ('open' -ne $ExpandWildcards){
+        [Void]$UrlParameter.Append("&expand_wildcards=$ExpandWildcards")
     }
     if ('PlainText' -eq $Format){
         # Do nothing
@@ -96,8 +103,8 @@ function Get-OSAlias {
     }
 
     # Build request
-    if ($AliasName.Count -ge 1){
-        $Request = '/_cat/aliases/' + [String]$AliasName + $UrlParameterString
+    if ($Alias.Count -ge 1){
+        $Request = '/_cat/aliases/' + [String]$Alias + $UrlParameterString
     }
     else {
         $Request = '/_cat/aliases' + $UrlParameterString
@@ -135,4 +142,3 @@ function Get-OSAlias {
 }
 
 Export-ModuleMember -Function Get-OSAlias
-
