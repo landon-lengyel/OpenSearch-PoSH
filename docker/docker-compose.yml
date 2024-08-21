@@ -3,13 +3,6 @@ services:
   opensearch-test1: # This is also the hostname of the container within the Docker network (i.e. https://opensearch-node1/)
     image: opensearchproject/opensearch:latest # Specifying the latest available image - modify if you want a specific version
     container_name: opensearch-test1
-    #environment:
-      #- cluster.name=opensearch-test # Name the cluster
-      #- node.name=opensearch-test1 # Name the node that will run in this container
-      #- discovery.seed_hosts=opensearch-test1,opensearch-test2 # Nodes to look for when discovering the cluster
-      #- cluster.initial_cluster_manager_nodes=opensearch-test1,opensearch-test1 # Nodes eligible to serve as cluster manager
-      #- bootstrap.memory_lock=true # Disable JVM heap memory swapping
-      #- "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m" # Set min and max JVM heap sizes to at least 50% of system RAM
     ulimits:
       memlock:
         soft: -1 # Set memlock to unlimited (no soft or hard limit)
@@ -24,10 +17,6 @@ services:
       - ./opensearch-test1/opensearch-test1.key:/usr/share/opensearch/config/opensearch-test1.key
       - ./opensearch-ca.crt:/usr/share/opensearch/config/opensearch-ca.crt
       - ./opensearch-security/:/usr/share/opensearch/config/opensearch-security/
-    #extra_hosts:
-    #  - "opensearch-test1.local:127.0.0.1"
-    #  - "opensearch-test2.local:127.0.0.1"
-    #  - "opensearch-testdashboards.local:127.0.0.1"
     ports:
       - 9200:9200 # REST API
       - 9600:9600 # Performance Analyzer
@@ -52,60 +41,28 @@ services:
       -icl -nhnv \
       -p 9200 -h opensearch-test1.local"
     ]
-  #opensearch-test2:
-  #  image: opensearchproject/opensearch:latest # This should be the same image used for opensearch-node1 to avoid issues
-  #  container_name: opensearch-test2
-  #  environment:
-  #    #- cluster.name=opensearch-test
-  #    #- node.name=opensearch-test2
-  #    #- discovery.seed_hosts=opensearch-test1,opensearch-test2
-  #    #- cluster.initial_cluster_manager_nodes=opensearch-test1,opensearch-test2
-  #    #- bootstrap.memory_lock=true
-  #    #- "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
-  #  ulimits:
-  #    memlock:
-  #      soft: -1
-  #      hard: -1
-  #    nofile:
-  #      soft: 65536
-  #      hard: 65536
-  #  volumes:
-  #    - opensearch-data2:/usr/share/opensearch/data
-  #    - ./opensearch-test2/opensearch.yml:/usr/share/opensearch/config/opensearch.yml
-  #    - ./opensearch-test2/opensearch-test2.crt:/usr/share/opensearch/config/opensearch-test2.crt
-  #    - ./opensearch-test2/opensearch-test2.key:/usr/share/opensearch/config/opensearch-test2.key
-  #    - ./opensearch-ca.crt:/usr/share/opensearch/config/opensearch-ca.crt
-  #    - ./opensearch-security/:/usr/share/opensearch/config/opensearch-security/
-  #  extra_hosts:
-  #    - "opensearch-test1.local:127.0.0.1"
-  #    - "opensearch-test2.local:127.0.0.1"
-  #    - "opensearch-testdashboards.local:127.0.0.1"
-  #  networks:
-  #    - opensearch-net
-  opensearch-dashboards:
+
+  opensearch-dashboards-test1:
     image: opensearchproject/opensearch-dashboards:latest # Make sure the version of opensearch-dashboards matches the version of opensearch installed on other nodes
-    container_name: opensearch-dashboards
+    container_name: opensearch-dashboards-test1
     ports:
       - 5601:5601 # Map host port 5601 to container port 5601
     expose:
       - "5601" # Expose port 5601 for web access to OpenSearch Dashboards
-    #environment:
-      #OPENSEARCH_HOSTS: '["http://opensearch-test1:9200","http://opensearch-test2:9200"]' # Define the OpenSearch nodes that OpenSearch Dashboards will query
     volumes:
-      - ./opensearch-testdashboards/opensearch_dashboards.yml:/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml
-      - ./opensearch-testdashboards/opensearch-testdashboards.crt:/usr/share/opensearch-dashboards/opensearch-testdashboards.crt
-      - ./opensearch-testdashboards/opensearch-testdashboards.key:/usr/share/opensearch-dashboards/opensearch-testdashboards.key
+      - ./opensearch-dashboards-test1/opensearch_dashboards.yml:/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml
+      - ./opensearch-dashboards-test1/opensearch-dashboards-test1.crt:/usr/share/opensearch-dashboards/opensearch-dashboards-test1.crt
+      - ./opensearch-dashboards-test1/opensearch-dashboards-test1.key:/usr/share/opensearch-dashboards/opensearch-dashboards-test1.key
       - ./opensearch-ca.crt:/usr/share/opensearch-dashboards/opensearch-ca.crt
-    #extra_hosts:
-    #  - "opensearch-test1.local:127.0.0.1"
-    #  - "opensearch-test2.local:127.0.0.1"
-    #  - "opensearch-testdashboards.local:127.0.0.1"
     networks:
       - opensearch-net
 
+  #opensearch-dataprepper:
+  #  image: opensearchproject/data-prepper:latest
+  #  container_name: opensearch-dataprepper-test1
+
 volumes:
   opensearch-data1:
-  opensearch-data2:
 
 networks:
   opensearch-net:

@@ -220,10 +220,10 @@ opensearch_security.readonly_mode.roles: ["kibana_read_only"]
 
 # TLS communication from clients to Dashboards
 server.ssl.enabled: true
-server.ssl.certificate: /usr/share/opensearch-dashboards/opensearch-testdashboards.crt
-server.ssl.key: /usr/share/opensearch-dashboards/opensearch-testdashboards.key
+server.ssl.certificate: /usr/share/opensearch-dashboards/opensearch-dashboards-test1.crt
+server.ssl.key: /usr/share/opensearch-dashboards/opensearch-dashboards-test1.key
 
 ## OpenID Authentication (SSO)
 #opensearch_security.auth.multiple_auth_enabled: true
 opensearch_security.auth.type: ["basicauth"]
-#opensearch_security.openid.base_redirect_url: "http://opensearch-testdashboards.local:5601"
+#opensearch_security.openid.base_redirect_url: "https://opensearch-dashboards-test1.local:5601"
