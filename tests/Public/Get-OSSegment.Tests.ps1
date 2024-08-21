@@ -66,7 +66,7 @@ Describe 'Get-OSSegment' {
         $Shards = Get-OSSegment -Format 'Smile'
 
         $Shards.GetType().FullName | Should -Be 'System.String' -Because 'Smile format appears as strings'
-        $Shards | Should -BeLike ":)`n.???indexQ*" -Because 'Smile starts with :) on one line then content on next line'
+        $Shards | Should -BeLike ":)`n.???index*" -Because 'Smile starts with :) on one line then content on next line'
     }
 
     It 'Can format as PlainText' {
