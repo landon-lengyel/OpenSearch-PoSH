@@ -1,0 +1,46 @@
+test-pipeline:
+  workers: 1
+  delay: "1000"
+  source:
+    http:
+      port: 2021
+      health_check_service: true
+      unauthenticated_health_check: true
+      ssl: true
+      ssl_certificate_file: /usr/share/data-prepper/certs/opensearch-dataprepper-test1.crt
+      ssl_key_file: /usr/share/data-prepper/certs/opensearch-dataprepper-test1.key
+      authentication:
+        http_basic:
+          username: admin
+          password: admin
+  buffer:
+    bounded_blocking:
+      buffer_size: 1024
+      batch_size: 256
+  processor:
+    - string_converter:
+        upper_case: true
+  route:
+    - application-logs-route: /log_type == "APPLICATION"
+    - http-logs-route: /log_type == "apache"
+  sink:
+    - opensearch:
+        hosts: [ "https://opensearch-test1.local:9200" ]
+        index: application-logs
+        routes: [application-logs-route]
+        username: admin
+        password: MyNotSecretAdminPass123!
+        cert: /usr/share/data-prepper/opensearch-ca.crt
+    - opensearch:
+        hosts: [ "https://opensearch-test1.local:9200" ]
+        index: http-logs
+        routes: [http-logs]
+        username: admin
+        password: MyNotSecretAdminPass123!
+        cert: /usr/share/data-prepper/opensearch-ca.crt
+    - opensearch:
+        hosts: [ "https://opensearch-test1.local:9200" ]
+        index: all-logs
+        username: admin
+        password: MyNotSecretAdminPass123!
+        cert: /usr/share/data-prepper/opensearch-ca.crt

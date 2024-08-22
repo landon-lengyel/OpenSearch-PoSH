@@ -1,0 +1,9 @@
+serverPort: 4900
+ssl: true
+keyStoreFilePath: /usr/share/data-prepper/certs/opensearch-dataprepper-test1.pfx
+authentication:
+  http_basic:
+    username: admin
+    password: admin
+#heap:
+#  usage: 1gb

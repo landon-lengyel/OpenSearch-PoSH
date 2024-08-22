@@ -22,7 +22,9 @@ services:
       - 9600:9600 # Performance Analyzer
     networks:
       - opensearch-net # All of the containers will join the same Docker bridge network
-  opensearch-test-setup:  # For running any additional setup commands
+
+  # For running any additional setup commands
+  opensearch-test-setup:
     image: opensearchproject/opensearch:latest
     depends_on:
       - opensearch-test1
@@ -45,6 +47,8 @@ services:
   opensearch-dashboards-test1:
     image: opensearchproject/opensearch-dashboards:latest # Make sure the version of opensearch-dashboards matches the version of opensearch installed on other nodes
     container_name: opensearch-dashboards-test1
+    depends_on:
+      - opensearch-test1
     ports:
       - 5601:5601 # Map host port 5601 to container port 5601
     expose:
@@ -57,9 +61,29 @@ services:
     networks:
       - opensearch-net
 
-  #opensearch-dataprepper:
-  #  image: opensearchproject/data-prepper:latest
-  #  container_name: opensearch-dataprepper-test1
+  opensearch-dataprepper-test1:
+    image: opensearchproject/data-prepper:latest
+    container_name: opensearch-dataprepper-test1
+    depends_on:
+      - opensearch-test1
+    ports:
+      - 4900:4900
+      - 2021:2021
+    expose:
+      - "4900"
+      - "2021"
+    volumes:
+      # Certificates
+      - ./opensearch-ca.crt:/usr/share/data-prepper/opensearch-ca.crt
+      - ./opensearch-dataprepper-test1/certs/opensearch-dataprepper-test1.crt:/usr/share/data-prepper/certs/opensearch-dataprepper-test1.crt
+      - ./opensearch-dataprepper-test1/certs/opensearch-dataprepper-test1.key:/usr/share/data-prepper/certs/opensearch-dataprepper-test1.key
+      - ./opensearch-dataprepper-test1/certs/opensearch-dataprepper-test1.pfx:/usr/share/data-prepper/certs/opensearch-dataprepper-test1.pfx
+
+      # Config files
+      - ./opensearch-dataprepper-test1/config/data-prepper-config.yaml:/usr/share/data-prepper/config/data-prepper-config.yaml
+      - ./opensearch-dataprepper-test1/pipelines/:/usr/share/data-prepper/pipelines/
+    networks:
+      - opensearch-net
 
 volumes:
   opensearch-data1:
