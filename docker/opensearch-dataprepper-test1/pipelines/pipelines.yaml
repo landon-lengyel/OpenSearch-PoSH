@@ -22,7 +22,7 @@ test-pipeline:
         upper_case: true
   route:
     - application-logs-route: /log_type == "APPLICATION"
-    - http-logs-route: /log_type == "apache"
+    - http-logs-route: /log_type == "APACHE"
   sink:
     - opensearch:
         hosts: [ "https://opensearch-test1.local:9200" ]
