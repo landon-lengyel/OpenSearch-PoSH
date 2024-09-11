@@ -72,7 +72,7 @@ PowerShellVersion = '7.0'
 #'Confirm-OSDataType', 'Confirm-OSFieldNamingStandard', 'Convert-OSAdditionalParam'
 #'Find-OSBulkError', 'Get-OSConfigAuthentication', 'Get-OSConfigNode', 'Import-OSConfigFile',
 #'Invoke-OSCustomWebRequest', 'New-OSConfigFile',
-    FunctionsToExport = @('Add-OSIsmPolicy', 'Add-OSLogPS', 'Confirm-OSIndexExist', 'Copy-OSIsmPolicy', 'Disable-OSIndexWrite',
+    FunctionsToExport = @('Add-OSIsmPolicy', 'Add-OSLogPS', 'Add-OSLogPSBulk', 'Confirm-OSIndexExist', 'Copy-OSIsmPolicy', 'Disable-OSIndexWrite',
         'Disable-OSPerformanceAnalyzer', 'Enable-OSIndexWrite', 'Enable-OSPerformanceanalyzer', 'Find-OS',
         'Find-OSIndexPatternId', 'Find-OSLogPS', 'Find-OSVisualizationsById' , 'Get-OSAlias', 'Get-OSCatHeader',
         'Get-OSClusterHealth', 'Get-OSClusterShardAllocation', 'Get-OSDataStream' , 'Get-OSIndex',
