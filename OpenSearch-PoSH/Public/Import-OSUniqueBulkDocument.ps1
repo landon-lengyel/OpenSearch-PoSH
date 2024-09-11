@@ -39,6 +39,7 @@ function Import-OSUniqueBulkDocument {
 
         [Int64]$UploadLimit=4999,
 
+        [ValidateSet('','create','delete','index','update')]
         [string]$OpType,
 
         [System.Management.Automation.Credential()]
@@ -51,6 +52,11 @@ function Import-OSUniqueBulkDocument {
 
     # Index names must be lowercase
     $Index = $Index.ToLower()
+
+    # OpType must be lowercase
+    if ('' -ne $OpType){
+        $OpType = $OpType.ToLower()
+    }
 
     # OpenSearch defined limit for uploads is 4999, but there are entries for the action so x2
     if ($UploadLimit -gt 4999){
