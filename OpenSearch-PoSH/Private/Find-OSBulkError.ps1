@@ -56,5 +56,8 @@ function Find-OSBulkError {
     elseif ($Response.errors -eq $false){
         return
     }
+    # General failure, or other unknown failure
+    else {
+        throw $Response
+    }
 }
-
