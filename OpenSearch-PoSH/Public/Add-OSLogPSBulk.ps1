@@ -122,7 +122,7 @@ function Add-OSLogPSBulk {
 
     $Response = Import-OSAllBulkDocument -Index $Index -Documents $Logs -OpType $OpType -UploadLimit $UploadLimit -Credential $Credential -Certificate $Certificate -OpenSearchURL $OpenSearchURL
 
-    if ($Response.StatusCode -eq $true -or
+    if ($Response -eq $true -or
     $null -eq $Response){
         return
     }
