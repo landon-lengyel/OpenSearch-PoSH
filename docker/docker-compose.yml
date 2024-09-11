@@ -38,8 +38,8 @@ services:
       /usr/share/opensearch/plugins/opensearch-security/tools/securityadmin.sh \
       -cd /usr/share/opensearch/config/opensearch-security \
       -cacert /usr/share/opensearch/config/opensearch-ca.crt \
-      -cert /usr/share/opensearch/config/opensearch-security/test-admin.crt \
-      -key /usr/share/opensearch/config/opensearch-security/test-admin.key \
+      -cert /usr/share/opensearch/config/opensearch-security/admin.crt \
+      -key /usr/share/opensearch/config/opensearch-security/admin.key \
       -icl -nhnv \
       -p 9200 -h opensearch-test1.local"
     ]
