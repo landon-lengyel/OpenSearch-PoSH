@@ -36,6 +36,20 @@ function Add-OSLogPSBulk {
 
     .PARAMETER OpenSearchURL
         URL(s) to OpenSearch instance. Do not include any path or api endpoint.
+
+    .EXAMPLE
+        # In case of terminating error, upload existing logs
+        trap {
+            if ($LogList.Count -gt 0){
+                $Params = @{
+                    'Index' = 'log_ps_example'
+                    'OpType' = 'Create'
+                    'Logs' = $LogList
+                    'ErrorAction' = 'Continue'
+                }
+                Add-OSLogPSBulk @Params
+            }
+        }
     #>
     [CmdletBinding()]
     param(
