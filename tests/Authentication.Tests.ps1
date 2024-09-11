@@ -1,8 +1,8 @@
 BeforeAll {
     Import-Module "./OpenSearch-PoSH/OpenSearch-PoSH.psd1" -Force
 
-    $OriginalLocation = Get-Location
-    $PfxPath = "$OriginalLocation/docker/opensearch-security/test-admin.pfx"
+    $Global:OriginalLocation = Get-Location
+    $Global:PfxPath = "$Global:OriginalLocation/docker/opensearch-security/admin.pfx"
     $PfxThumbprint = '0ac3bc7c992b600cf982a9c5dee16516d9714af5'   # Also specified in test config below
 }
 
@@ -98,14 +98,14 @@ Describe 'Authentication' {
             ],
             "Authentication": {
                 "Certificate": {
-                    "CertificatePfxPath": "./test-admin.pfx"
+                    "CertificatePfxPath": "./admin.pfx"
                 },
             }
         }'
         $Config | Out-File -Path './PoSHOpenSearchConfig.json'
 
         # Copy the PFX File
-        Copy-Item -Path $PfxPath -Destination "." | Should -BeNullOrEmpty -Because 'Certificate path should be correct'
+        Copy-Item -Path $Global:PfxPath -Destination "." | Should -BeNullOrEmpty -Because 'Certificate path should be correct'
 
         $Health = Get-OSClusterHealth
 
@@ -134,8 +134,8 @@ Describe 'Authentication' {
         $Config | Out-File -Path './PoSHOpenSearchConfig.json'
 
         # Copy the PFX File and import it
-        Copy-Item -Path $PfxPath -Destination "." | Should -BeNullOrEmpty -Because 'Certificate path should be correct'
-        Import-PfxCertificate -FilePath './test-admin.pfx' -CertStoreLocation 'Cert:\CurrentUser\My\' | Should -ExpectedType 'System.Security.Cryptography.X509Certificates.X509Certificate2' -Because 'Pfx name should be correct and importable'
+        Copy-Item -Path $Global:PfxPath -Destination "." | Should -BeNullOrEmpty -Because 'Certificate path should be correct'
+        Import-PfxCertificate -FilePath './admin.pfx' -CertStoreLocation 'Cert:\CurrentUser\My\' | Should -ExpectedType 'System.Security.Cryptography.X509Certificates.X509Certificate2' -Because 'Pfx name should be correct and importable'
 
         $Health = Get-OSClusterHealth
 
@@ -158,10 +158,10 @@ Describe 'Authentication' {
 
     AfterEach {
         Remove-Item 'TestDrive:\PoSHOpenSearchConfig.json' -ErrorAction SilentlyContinue
-        Set-Location $OriginalLocation
+        Set-Location $Global:OriginalLocation
     }
 }
 
 AfterAll {
-    Get-ChildItem -Path "Cert:\CurrentUser\My\$PfxThumbprint" -ErrorAction SilentlyContinue | Remove-Item
+    Get-ChildItem -Path "Cert:\CurrentUser\My\$PfxThumbprint" -ErrorAction SilentlyContinue | Remove-Item -ErrorAction SilentlyContinue
 }
