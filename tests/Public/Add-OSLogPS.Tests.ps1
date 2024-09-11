@@ -7,6 +7,7 @@ BeforeAll {
 Describe 'Add-OSLogPS' {
     BeforeEach {
         # Pester created temp drive
+        Copy-Item './PoSHOpenSearchConfig.json' 'TestDrive:\PoSHOpenSearchConfig.json'
         Set-Location "TestDrive:\"
 
         $DefaultLogFilePath = "$global:PSScriptRoot\Logs\Pester_OpenSearch_$(Get-Date -Format yyyy-MM-dd).json"
