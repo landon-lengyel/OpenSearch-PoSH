@@ -268,7 +268,7 @@
 
         [switch]$SeqNoPrimaryTerm,
 
-        [Int64]$Size=5,
+        [Int64]$Size=10,
 
         [string]$Stats,
 
@@ -455,9 +455,7 @@
     if ($SeqNoPrimaryTerm -eq $True){
         $Body.seq_no_primary_term = $True
     }
-    if ($Size -ne 5){
-        $Body.size = $Size
-    }
+    $Body.size = $Size
     if ($Stats -ne ''){
         $Body.stats = $Stats
     }
