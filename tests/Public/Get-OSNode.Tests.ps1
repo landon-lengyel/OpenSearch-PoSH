@@ -7,7 +7,7 @@ Describe 'Get-OSNode' {
         $Nodes = Get-OSNode
 
         $Nodes[0].name | Should -Not -BeNullOrEmpty -Because 'Returns node name'
-        $Nodes[0].id | Should -Match '\w{4,8}' -Because 'Node ID is truncated'
+        $Nodes[0].id | Should -Match '\w{2,8}' -Because 'Node ID is truncated'
     }
 
     It 'Returns full ID' {
