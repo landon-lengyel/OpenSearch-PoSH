@@ -5,6 +5,7 @@ function Update-OSDashboardsObject {
 
     .DESCRIPTION
         Takes an value for a document located at a specific location in a specific index, and updates it to the desired value.
+        Returns $null if successful.
 
     .PARAMETER Credential
         PSCredential for basic authentication to OpenSearch.
@@ -101,7 +102,7 @@ function Update-OSDashboardsObject {
     }
 
     if ($Response.StatusCode -eq '200'){
-        return $True
+        return
     }
     else {
         throw $Response

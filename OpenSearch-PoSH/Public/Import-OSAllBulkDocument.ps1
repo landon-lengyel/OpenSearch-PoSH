@@ -139,7 +139,7 @@ function Import-OSAllBulkDocument {
     }
 
     if ($Errors.Count -eq 0){
-        return $True
+        return
     }
     else {
         throw $Errors

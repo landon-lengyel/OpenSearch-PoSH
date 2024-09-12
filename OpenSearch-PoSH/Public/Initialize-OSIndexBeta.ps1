@@ -91,7 +91,7 @@ function Initialize-OSIndexBeta {
     $Request = $Index
     $Response = Invoke-OSCustomWebRequest -OpenSearchUrls $OpenSearchURL -Request $Request -Method "PUT" -Credential $Credential -Certificate $Certificate -Body $Body
 
-    # Return $true if successfully created or already exists
+    # Return if successfully created or already exists
     if ($Response.StatusCode -eq 200){
         # index created successfully
         return

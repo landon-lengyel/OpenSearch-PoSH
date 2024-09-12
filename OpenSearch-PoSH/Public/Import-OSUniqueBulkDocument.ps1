@@ -164,7 +164,7 @@ function Import-OSUniqueBulkDocument {
     }
 
     if ($Errors.Count -eq 0){
-        return $True
+        return
     }
     else {
         throw $Errors
