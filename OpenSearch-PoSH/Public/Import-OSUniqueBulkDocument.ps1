@@ -39,8 +39,8 @@ function Import-OSUniqueBulkDocument {
 
         [Int64]$UploadLimit=4999,
 
-        [ValidateSet('','create','delete','index','update')]
-        [string]$OpType,
+        [ValidateSet('create','delete','index','update')]
+        [string]$OpType='index',
 
         [System.Management.Automation.Credential()]
         [PSCredential]$Credential=[PSCredential]::Empty,
@@ -54,20 +54,13 @@ function Import-OSUniqueBulkDocument {
     $Index = $Index.ToLower()
 
     # OpType must be lowercase
-    if ('' -ne $OpType){
-        $OpType = $OpType.ToLower()
-    }
+    $OpType = $OpType.ToLower()
 
     # OpenSearch defined limit for uploads is 4999, but there are entries for the action so x2
     if ($UploadLimit -gt 4999){
         $UploadLimit = 4999
     }
     $UploadLimit = $UploadLimit * 2
-
-    # Default $OpType to 'index'
-    if ($OpType -eq ''){
-        $OpType = 'index'
-    }
 
     # Prepare for generating sha256 hashes of documents later
     $sha256 = New-Object -TypeName System.Security.Cryptography.SHA256CryptoServiceProvider
