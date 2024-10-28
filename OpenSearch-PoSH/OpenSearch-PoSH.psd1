@@ -12,7 +12,7 @@
 RootModule = 'OpenSearch-PoSH.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.3.2'
+ModuleVersion = '0.3.3'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -76,7 +76,7 @@ PowerShellVersion = '7.0'
         'Disable-OSPerformanceAnalyzer', 'Enable-OSIndexWrite', 'Enable-OSPerformanceanalyzer', 'Find-OS',
         'Find-OSIndexPatternId', 'Find-OSLogPS', 'Find-OSVisualizationsById' , 'Get-OSAlias', 'Get-OSCatHeader',
         'Get-OSClusterHealth', 'Get-OSClusterShardAllocation', 'Get-OSDataStream' , 'Get-OSIndex',
-        'Get-OSIndexCount', 'Get-OSIndexSetting', 'Get-OSIngestPipeline', 'Get-OSIsm',
+        'Get-OSIndexCount', 'Get-OSIndexMapping', 'Get-OSIndexSetting', 'Get-OSIngestPipeline', 'Get-OSIsm',
         'Get-OSIsmPolicyContent', 'Get-OSNode', 'Get-OSNodeProperty', 'Get-OSPerformanceAnalyzerStatus', 'Get-OSSegment', 'Get-OSShard', 'Get-OSShardRecovery',
         'Get-OSStorageAllocation', 'Get-OSTask', 'Import-OSAllBulkDocument', 'Import-OSDocument',
         'Import-OSUniqueBulkDocument', 'Initialize-OSDataStream', 'Initialize-OSIndexBeta', 'Initialize-OSPSLog',
