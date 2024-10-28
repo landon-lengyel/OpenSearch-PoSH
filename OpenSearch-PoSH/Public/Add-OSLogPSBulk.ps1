@@ -63,8 +63,8 @@ function Add-OSLogPSBulk {
 
         [string]$LogFile,
 
-        [ValidateSet('','create','delete','index','update')]
-        [string]$OpType,
+        [ValidateSet('create','delete','index','update')]
+        [string]$OpType='index',
 
         [Int64]$UploadLimit=4999,
 
