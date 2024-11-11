@@ -75,7 +75,7 @@ function Update-OSIsmPolicy {
     }
 
     # Process data stream
-    $DataStream = Get-OSDataStream -DataStreamName $Index -ErrorAction SilentlyContinue
+    $DataStream = Get-OSDataStream -DataStream $Index -ErrorAction SilentlyContinue
     if ($null -ne $DataStream){
         # Get backing index name that matches the 'generation' number
         $Generation = $DataStream.generation.ToString()
