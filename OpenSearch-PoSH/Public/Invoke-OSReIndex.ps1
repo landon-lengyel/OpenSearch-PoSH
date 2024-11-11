@@ -33,6 +33,9 @@ function Invoke-OSReIndex {
     .PARAMETER IngestPipeline
         Name of an ingest pipeline to use during reindex.
 
+    .PARAMETER IgnoreConflicts
+        Ignores version conflicts using the "proceed" option for conflicts.
+
     .PARAMETER Credential
         PSCredential for basic authentication to OpenSearch.
 
@@ -64,6 +67,8 @@ function Invoke-OSReIndex {
         [string]$OpType,
 
         [string]$IngestPipeline,
+
+        [switch]$IgnoreConflicts,
 
         [System.Management.Automation.Credential()]
         [PSCredential]$Credential=[PSCredential]::Empty,
@@ -125,11 +130,10 @@ function Invoke-OSReIndex {
         }
     }
 
-    # If Ingest Pipeline is used, specify it
+    # Body parameters
     if ($IngestPipeline -ne ''){
         $Body.dest.pipeline = $IngestPipeline
     }
-
     if ($OpType -ne ''){
         $Body.dest.op_type = $OpType
     }
@@ -141,6 +145,9 @@ function Invoke-OSReIndex {
         else {
             $Body.source.query = $SourceQuery
         }
+    }
+    if ($IgnoreConflicts -eq $true){
+        $body.'conflicts' = 'proceed'
     }
 
     $Body = $Body | ConvertTo-Json -Depth 100
