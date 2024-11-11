@@ -54,7 +54,7 @@ function Invoke-OSReIndex {
         [Parameter(Mandatory)]
         [string]$DestinationIndex,
 
-        [boolean]$WaitForCompletion=$false,
+        [switch]$WaitForCompletion,
 
         [int]$MaxDocs=-1,
 
@@ -114,11 +114,15 @@ function Invoke-OSReIndex {
         else { $Request += '&' }
         $Request += "requests_per_second=$RequestsPerSecond"
     }
-    # Wait for completion will always be added - they claim 'false' is default but that's not the behavior I've seen
     if ($Request -match '_reindex$') { $Request += '?' }
     elseif ($Request -match '\?') { $Request += '&' }
-    $Request += "wait_for_completion=" + ([String]$WaitForCompletion).ToLower()
-
+    # Wait for completion will always be added - they claim 'false' is default but that's not the behavior I've seen
+    if ($WaitForCompletion -ne $True){
+        $Request += "wait_for_completion=false"
+    }
+    else {
+        $Request += "wait_for_completion=true"
+    }
 
     # Build body
     $Body = @{
