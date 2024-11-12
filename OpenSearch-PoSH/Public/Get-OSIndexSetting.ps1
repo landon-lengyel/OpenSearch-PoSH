@@ -34,7 +34,6 @@ function Get-OSIndexSetting {
     [OutputType([System.Management.Automation.PSCustomObject])]
     [CmdletBinding()]
     param(
-        [Parameter(Mandatory=$true)]
         [string]$Index,
 
         [System.Management.Automation.Credential()]
@@ -48,7 +47,12 @@ function Get-OSIndexSetting {
     # Index name must be lowercase
     $Index = $Index.ToLower()
 
-    $Request = $Index + '/_settings'
+    if ($Index -eq ''){
+        $Request = '/_settings'
+    }
+    else {
+        $Request = $Index + '/_settings'
+    }
 
     $Response = Invoke-OSCustomWebRequest -Request $Request -Method "GET" -Credential $Credential -Certificate $Certificate -OpenSearchUrls $OpenSearchURL
 
