@@ -37,20 +37,11 @@ function New-OSIndex {
         [Parameter(Mandatory, ParameterSetName = 'ConfigJson')]
         [string]$ConfigJson,
 
-        #[Parameter(ParameterSetName = 'NoConfig')]
-        #[Parameter(ParameterSetName = 'ConfigHash')]
-        #[Parameter(ParameterSetName = 'ConfigJson')]
         [System.Management.Automation.Credential()]
         [PSCredential]$Credential=[PSCredential]::Empty,
 
-        #[Parameter(ParameterSetName = 'NoConfig')]
-        #[Parameter(ParameterSetName = 'ConfigHash')]
-        #[Parameter(ParameterSetName = 'ConfigJson')]
         [System.Security.Cryptography.X509Certificates.X509Certificate2]$Certificate,
 
-        #[Parameter(ParameterSetName = 'NoConfig')]
-        #[Parameter(ParameterSetName = 'ConfigHash')]
-        #[Parameter(ParameterSetName = 'ConfigJson')]
         $OpenSearchURL
     )
 
