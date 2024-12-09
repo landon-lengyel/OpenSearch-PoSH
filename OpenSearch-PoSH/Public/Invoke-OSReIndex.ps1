@@ -95,6 +95,10 @@ function Invoke-OSReIndex {
         }
     }
 
+    # Only lowercase index names are allowed
+    $SourceIndex = $SourceIndex.ToLower()
+    $DestinationIndex = $DestinationIndex.ToLower()
+
     # URL parameters
     $Request = '/_reindex'
 
