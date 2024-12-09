@@ -1,5 +1,5 @@
 BeforeAll {
-    $IndexName = 'Get-OSIndexMapping-TestIndex'
+    $IndexName = 'get-osindexmapping-testindex'
 
     Import-Module "./OpenSearch-PoSH/OpenSearch-PoSH.psd1" -Force
 

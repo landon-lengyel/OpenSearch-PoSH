@@ -43,7 +43,7 @@ function Get-OSIndexMapping {
 
     $Response = Invoke-OSCustomWebRequest -Request $Request -Method "GET" -Credential $Credential -Certificate $Certificate -OpenSearchUrls $OpenSearchURL
 
-    $ResponseContent = $Response.Content | ConvertFrom-Json -Depth 100
+    $ResponseContent = $Response.Content | ConvertFrom-Json -Depth 100 -AsHashtable
     if ($Response.StatusCode -eq 200){
         return $ResponseContent
     }
