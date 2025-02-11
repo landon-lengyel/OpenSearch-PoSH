@@ -46,7 +46,7 @@ function Confirm-OSIndexExist {
         $OpenSearchURL
     )
 
-    #Only lowercase index names are allowed
+    # Only lowercase index names are allowed
     $Index = $Index.ToLower()
 
     # Build request
