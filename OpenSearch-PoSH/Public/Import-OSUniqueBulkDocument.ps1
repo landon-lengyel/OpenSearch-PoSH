@@ -34,7 +34,7 @@ function Import-OSUniqueBulkDocument {
         [Parameter(Mandatory=$true)]
         [string]$Index,
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=$true, ValueFromPipeline)]
         [Array]$Documents,
 
         [Int64]$UploadLimit=4999,

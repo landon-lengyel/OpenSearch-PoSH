@@ -21,6 +21,10 @@ Describe Import-OSUniqueBulkDocument {
         Import-OSUniqueBulkDocument -Index $global:Index -Documents $Documents | Should -BeNullOrEmpty -Because 'Success returns null'
     }
 
+    It 'Can import documents using value from pipeline' {
+        Get-Content -Path $global:TestFile418 | ConvertFrom-Csv | Import-OSUniqueBulkDocument -Index $global:Index | Should -BeNullOrEmpty -Because 'Success returns null'
+    }
+
     It 'Can import hashtables contained in a Generic List'{
         $Documents = Get-Content -Path $global:TestFile418 | ConvertFrom-Csv
 

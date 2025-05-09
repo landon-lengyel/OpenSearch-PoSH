@@ -34,7 +34,7 @@ function Import-OSAllBulkDocument {
         [Parameter(Mandatory=$true)]
         [string]$Index,
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=$true, ValueFromPipeline)]
         $Documents,
 
         [Int64]$UploadLimit=4999,

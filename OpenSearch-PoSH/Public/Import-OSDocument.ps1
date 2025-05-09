@@ -30,7 +30,7 @@ function Import-OSDocument {
         [Parameter(Mandatory)]
         [string]$Index,
 
-        [Parameter(Mandatory)]
+        [Parameter(Mandatory, ValueFromPipeline)]
         [hashtable]$Document,
 
         [string]$DocumentId,
