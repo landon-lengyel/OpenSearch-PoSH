@@ -35,12 +35,12 @@ services:
       - ./opensearch-security/:/usr/share/opensearch/config/opensearch-security/
     entrypoint: [ "bash", "-c", "sleep 15 && \
       /usr/share/opensearch/plugins/opensearch-security/tools/securityadmin.sh \
-      -cd /usr/share/opensearch/config/opensearch-security \
       -cacert /usr/share/opensearch/config/opensearch-ca.crt \
       -cert /usr/share/opensearch/config/opensearch-security/admin.crt \
       -key /usr/share/opensearch/config/opensearch-security/admin.key \
       -icl -nhnv \
-      -p 9200 -h opensearch-test1"
+      -p 9200 -h opensearch-test1 \
+      -cd /usr/share/opensearch/config/opensearch-security"
     ]
 
   opensearch-dashboards-test1:
