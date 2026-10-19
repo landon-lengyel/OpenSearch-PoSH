@@ -55,7 +55,7 @@ path.logs: /usr/share/opensearch/data
 #network.host: 192.168.0.1
 network.host: 0.0.0.0
 # Bind defaults to network.host - use 0.0.0.0 to respond on both individual URL and cluster URL.
-network.publish_host: ['opensearch-test2.local']
+network.publish_host: ['opensearch-test2']
 #
 # Set a custom port for HTTP:
 #
@@ -67,7 +67,7 @@ network.publish_host: ['opensearch-test2.local']
 #
 # Pass an initial list of hosts to perform discovery when this node is started:
 # The default list of hosts is ["127.0.0.1", "[::1]"]
-discovery.seed_hosts: [ "opensearch-test1.local","opensearch-test2.local" ]
+discovery.seed_hosts: [ "opensearch-test1","opensearch-test2" ]
 #
 # Bootstrap the cluster using an initial set of cluster-manager-eligible nodes:
 cluster.initial_cluster_manager_nodes: [ "opensearch-test1","opensearch-test2" ]
@@ -77,7 +77,7 @@ cluster.initial_cluster_manager_nodes: [ "opensearch-test1","opensearch-test2" ]
 # --------------------------------- Security ----------------------------------
 #
 # SSL/TLS settings for inter-node communication:
-plugins.security.ssl.transport.enforce_hostname_verification: true
+transport.ssl.enforce_hostname_verification: false
 plugins.security.ssl.transport.pemcert_filepath: /usr/share/opensearch/config/opensearch-test2.crt
 plugins.security.ssl.transport.pemkey_filepath: /usr/share/opensearch/config/opensearch-test2.key
 plugins.security.ssl.transport.pemtrustedcas_filepath: /usr/share/opensearch/config/opensearch-ca.crt
@@ -89,8 +89,8 @@ plugins.security.allow_default_init_securityindex: true
 plugins.security.authcz.admin_dn:
   - 'CN=admin,OU=DO NOT TRUST,O=DO NOT TRUST,L=DO NOT TRUST,ST=Some-State,C=US'
 plugins.security.nodes_dn:
-  - 'C=US,ST=Some-State,L=DO NOT TRUST,O=DO NOT TRUST,OU=DO NOT TRUST,CN=opensearch-test1.local'
-  - 'C=US,ST=Some-State,L=DO NOT TRUST,O=DO NOT TRUST,OU=DO NOT TRUST,CN=opensearch-test2.local'
+  - 'C=US,ST=Some-State,L=DO NOT TRUST,O=DO NOT TRUST,OU=DO NOT TRUST,CN=opensearch-test1'
+  - 'C=US,ST=Some-State,L=DO NOT TRUST,O=DO NOT TRUST,OU=DO NOT TRUST,CN=opensearch-test2'
 plugins.security.audit.type: internal_opensearch
 plugins.security.enable_snapshot_restore_privilege: true
 plugins.security.check_snapshot_restore_write_privileges: true
@@ -98,8 +98,6 @@ plugins.security.restapi.roles_enabled: ["all_access", "security_rest_api_access
 #
 # --------------------------------- Misc ----------------------------------
 #
-# Allow WinLogBeat and others to work
-compatibility.override_main_response_version: true
 # Enable optional client certificate authentication
 plugins.security.ssl.http.clientauth_mode: OPTIONAL
 

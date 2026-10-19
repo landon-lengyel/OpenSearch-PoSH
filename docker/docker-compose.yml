@@ -40,7 +40,7 @@ services:
       -cert /usr/share/opensearch/config/opensearch-security/admin.crt \
       -key /usr/share/opensearch/config/opensearch-security/admin.key \
       -icl -nhnv \
-      -p 9200 -h opensearch-test1.local"
+      -p 9200 -h opensearch-test1"
     ]
 
   opensearch-dashboards-test1:

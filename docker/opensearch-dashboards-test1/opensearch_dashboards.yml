@@ -199,7 +199,7 @@
 server.host: 0.0.0.0
 server.name: "OpenSearch"
 
-opensearch.hosts: ["https://opensearch-test1.local:9200"]
+opensearch.hosts: ["https://opensearch-test1:9200"]
 opensearch.username: kibanaserver
 opensearch.password: MyNotSecretKibanaPass123!
 opensearch.requestHeadersAllowlist: ["Authorization", "securitytenant"]
@@ -226,4 +226,4 @@ server.ssl.key: /usr/share/opensearch-dashboards/opensearch-dashboards-test1.key
 ## OpenID Authentication (SSO)
 #opensearch_security.auth.multiple_auth_enabled: true
 opensearch_security.auth.type: ["basicauth"]
-#opensearch_security.openid.base_redirect_url: "https://opensearch-dashboards-test1.local:5601"
+#opensearch_security.openid.base_redirect_url: "https://opensearch-dashboards-test1:5601"
